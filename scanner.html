@@ -50,6 +50,7 @@
 					<p class="joqd align-center white-text no-margin">کد <span lang="en">QR</span> را داخل جعبه چشمک‌زن قرار دهید!</p>
 				</div>
 			</div>
+			 <audio src="audio/scanned.mp3" autostart="false"></audio>
 		</main>
 
 
@@ -65,24 +66,9 @@
 		<!-- QR Decoder -->
 		<script src="js/jsqrcode-combined.min.js"></script>
     <script src="js/html5-qrcode.min.js"></script>
-		<script type="text/javascript">
-    $('.camera').html5_qrcode(function(data){
-          console.log('data', data)
-         // do something when code is read
-     	},
-     	function(error){
-        console.log('error', error);
-    		//show read errors
-    	}, function(videoError){
-        console.log('videoError', videoError);
-    		//the video stream could be opened
-    	}
-    );
-		$('.camera video, .camera canvas').removeAttr('height width')
-    </script>
 
 		<!-- Scripts for Scanner page -->
-		<!-- <script src="js/scanner.js"></script> -->
+		<script src="js/scanner.js"></script>
 
 		<!-- Joqd Core js -->
 		<script src="js/joqd.min.js"></script>
