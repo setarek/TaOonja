@@ -14,6 +14,13 @@
 
 .hidden{display: none}
 
+.force-right{float: right !important}
+.force-left{float: left !important}
+
+@keyframes blinker {
+  50% { opacity: 0 }
+}
+
 body > main {padding-top: 62px}
 
 .description-title h1{
@@ -73,3 +80,75 @@ body > main {padding-top: 62px}
   position: fixed;
   bottom: 16px; right: 16px}
 .scan-qr-button a{padding: 12px}
+
+/***********************************************************************************/
+/*****                                                                         *****/
+/*****   Scanner Page                                                          *****/
+/*****                                                                         *****/
+
+  body#scanner .camera{
+  overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100vw; height: 100vh}
+
+  body#scanner .camera video,
+  body#scanner .camera canvas{
+    background-color: #E0E0E0;
+    position: absolute;
+    top: 50%; right: 50%;
+    min-width: 100%; min-height: 100%;
+    transform: translate(50%, -50%)}
+
+  body#scanner .camera .frame{
+    position: absolute;
+    top: 0; bottom: 0;
+    right: 0; left: 0;
+    margin: auto;
+    z-index: 1;
+    height: 100vmin; width: 100vmin}
+
+  body#scanner .camera .frame .frame-element{
+    position: absolute;
+    width: 100%; height: 100%}
+
+  body#scanner .camera .frame .frame-element::before,
+  body#scanner .camera .frame .frame-element::after{
+    content: '';
+    position: absolute;
+    width: 20vmin; height: 20vmin;
+    border-width: 2px}
+
+  body#scanner .camera .frame .frame-element.frame-element-top:before{
+    top: 12px; right: 12px;
+    border-style: solid solid none none}
+  body#scanner .camera .frame .frame-element.frame-element-top:after{
+    top: 12px; left: 12px;
+    border-style: solid none none solid}
+  body#scanner .camera .frame .frame-element.frame-element-bottom:before{
+    bottom: 12px; right: 12px;
+    border-style: none solid solid none}
+  body#scanner .camera .frame .frame-element.frame-element-bottom:after{
+    bottom: 12px; left: 12px;
+    border-style: none none solid solid}
+
+  body#scanner .camera.waiting .frame .frame-element::before,
+  body#scanner .camera.waiting .frame .frame-element::after{
+    border-color: #FF9800;
+    animation: blinker 1s linear infinite}
+
+  body#scanner .camera.captured .frame .frame-element::before,
+  body#scanner .camera.captured .frame .frame-element::after{
+    border-color: #FF9800}
+
+  body#scanner .camera .text{
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+    padding: 15px 0}
+
+/*****                                                                         *****/
+/*****                                                                         *****/
+/***********************************************************************************/
