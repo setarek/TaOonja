@@ -1,6 +1,12 @@
 *{-webkit-tap-highlight-color: rgba(255,255,255,0)}
 
 .no-margin{margin: 0 !important}
+.half-gaps{
+  padding-left: 6px !important;
+  padding-right: 6px !important}
+.no-gaps{
+  padding-left: 0 !important;
+  padding-right: 0 !important}
 
 .ratio-3-2{
   position: relative;
@@ -29,8 +35,8 @@ body > main {padding-top: 62px}
   line-height: 1;
   font-size: 28px}
 .description-title i,
-.description-title span{float: left}
-.description-title i{padding: 2px 12px}
+.description-title span{float: right}
+.description-title i{padding: 2px 6px 2px 0}
 .description-title span > *{
   font-size: 12px;
   line-height: 14px;
