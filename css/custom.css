@@ -29,32 +29,45 @@
   50% { opacity: 0 }
 }
 
-body > main {
+body > main{
   padding-top: 62px;
   padding-bottom: 62px}
 
-.description-title h1{
+main.index{
+  height: 100vh;
+  overflow: hidden}
+main.index .owl-carousel .owl-stage-outer{padding: 48px 0}
+main.index .owl-carousel .owl-item{
+  transition: all 250ms;
+  transform: scale(0.6);
+  opacity: 0.6}
+main.index .owl-carousel .owl-item.center{
+  transform: scale(1.4);
+  opacity: 1}
+
+main.detail{}
+main.detail .description-title h1{
   line-height: 1;
   font-size: 28px}
-.description-title i,
-.description-title span{float: right}
-.description-title i{padding: 2px 6px 2px 0}
-.description-title span > *{
+main.detail .description-title i,
+main.detail .description-title span{float: right}
+main.detail .description-title i{padding: 2px 6px 2px 0}
+main.detail .description-title span > *{
   font-size: 12px;
   line-height: 14px;
   display: block}
 
-.description-detail{padding: 24px 34px !important}
-.description-detail .description-detail-more{
+main.detail .description-detail{padding: 24px 34px !important}
+main.detail .description-detail .description-detail-more{
   font-size: 16px;
   padding: 10px 0}
-.description-detail .description-detail-inner{
+main.detail .description-detail .description-detail-inner{
   position: relative;
   font-size: 14px;
   height: 13.5em;
   line-height: 1.5;
   overflow: hidden}
-.description-detail .description-detail-inner.mini::after{
+main.detail .description-detail .description-detail-inner.mini::after{
   content: '';
   position: absolute;
   bottom: 0; left: 0;
@@ -62,27 +75,19 @@ body > main {
   width: 16ch; height: 1.5em;
   background: #f5f5f5;
   background: -webkit-linear-gradient(left, #f5f5f5 33%, rgba(245,245,245,0.87) 62%, rgba(245,245,245,0) 100%)}
-.description-detail .description-detail-inner hr{margin-top: 24px}
-.description-detail .description-detail-inner ol{list-style: persian}
+main.detail .description-detail .description-detail-inner hr{margin-top: 24px}
+main.detail .description-detail .description-detail-inner ol{list-style: persian}
 
-.owl-carousel .owl-item img{display: none}
-.featherlight{
+main.detail .owl-carousel .owl-item img{display: none}
+main.detail .featherlight{
   padding: 10vh 10vw;
   background: rgba(0, 0, 0, .6) !important}
-.featherlight .featherlight-close-icon{
-  /*font-family: Gorbeh Icons;
-  font-size: 24px;
-  color: white;
-  top: calc(5vh - 12px); right: calc(5vw - 12px);
-  background-color: transparent;
-  outline: none !important;*/
-  display: none}
-.featherlight .featherlight-content{
+main.detail .featherlight .featherlight-close-icon{display: none}
+main.detail .featherlight .featherlight-content{
   padding: 0;
   border: none;
   overflow: initial;
   background-color: transparent}
-/*.featherlight .featherlight-inner img{display: block}*/
 
 body > footer{
   position: fixed;
