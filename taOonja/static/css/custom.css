@@ -1,0 +1,195 @@
+*{-webkit-tap-highlight-color: rgba(255,255,255,0)}
+
+.no-margin{margin: 0 !important}
+.half-gaps{
+  padding-left: 6px !important;
+  padding-right: 6px !important}
+.no-gaps{
+  padding-left: 0 !important;
+  padding-right: 0 !important}
+
+.ratio-3-2{
+  position: relative;
+  padding: 66.666666667% 0 0 0 !important}
+
+.image-bg{
+  position: absolute;
+  top: 0; right: 0;
+  height: 100%; width: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover}
+
+.hidden{display: none}
+
+.force-right{float: right !important}
+.force-left{float: left !important}
+
+@keyframes blinker {
+  50% { opacity: 0 }
+}
+
+body > main{
+  padding-top: 62px;
+  padding-bottom: 62px}
+
+main.index{
+  height: 100vh;
+  overflow: hidden}
+main.index .owl-carousel .owl-stage-outer{padding: 48px 0}
+main.index .owl-carousel .owl-item{
+  transition: all 250ms;
+  transform: scale(0.6);
+  opacity: 0.6}
+main.index .owl-carousel .owl-item.center{
+  transform: scale(1.4);
+  opacity: 1}
+
+main.detail{}
+main.detail .description-title h1{
+  line-height: 1;
+  font-size: 28px}
+main.detail .description-title i,
+main.detail .description-title span{float: right}
+main.detail .description-title i{padding: 2px 6px 2px 0}
+main.detail .description-title span > *{
+  font-size: 12px;
+  line-height: 14px;
+  display: block}
+
+main.detail .description-detail{padding: 24px 34px !important}
+main.detail .description-detail .description-detail-more{
+  font-size: 16px;
+  padding: 10px 0}
+main.detail .description-detail .description-detail-inner{
+  position: relative;
+  font-size: 14px;
+  height: 13.5em;
+  line-height: 1.5;
+  overflow: hidden}
+main.detail .description-detail .description-detail-inner.mini::after{
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  display: block;
+  width: 16ch; height: 1.5em;
+  background: #f5f5f5;
+  background: -webkit-linear-gradient(left, #f5f5f5 33%, rgba(245,245,245,0.87) 62%, rgba(245,245,245,0) 100%)}
+main.detail .description-detail .description-detail-inner hr{margin-top: 24px}
+main.detail .description-detail .description-detail-inner ol{list-style: persian}
+
+main.detail .owl-carousel .owl-item img{display: none}
+main.detail .featherlight{
+  padding: 10vh 10vw;
+  background: rgba(0, 0, 0, .6) !important}
+main.detail .featherlight .featherlight-close-icon{display: none}
+main.detail .featherlight .featherlight-content{
+  padding: 0;
+  border: none;
+  overflow: initial;
+  background-color: transparent}
+
+body > footer{
+  position: fixed;
+  bottom: 0; right: 0;
+  z-index: 999;
+  width: 100%}
+
+body > footer .bottom-nav-right-button a{padding: 4px 4px 4px 26px !important}
+body > footer .bottom-nav-left-button a{padding: 4px 26px 4px 4px !important}
+
+body > footer .scan-qr-wrapper{
+  position: absolute;
+  top: 0;
+  right: 0; left: 0;
+  width: 60px;
+  z-index: 2;
+  margin: auto}
+body > footer .scan-qr-wrapper .scan-qr-button{
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding: 6px;
+  margin-top: -16px;
+  margin-bottom: -4px}
+body > footer .scan-qr-wrapper .scan-qr-button::before{
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%; height: 16px;
+  background-color: #bdbdbd}
+body > footer .scan-qr-wrapper .scan-qr-button a{
+  padding: 12px;
+  box-shadow: 0 0 0 5px white}
+
+/***********************************************************************************/
+/*****                                                                         *****/
+/*****   Scanner Page                                                          *****/
+/*****                                                                         *****/
+
+  body#scanner .camera{
+  overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100vw; height: 100vh}
+
+  body#scanner .camera video,
+  body#scanner .camera canvas{
+    background-color: #E0E0E0;
+    position: absolute;
+    top: 50%; right: 50%;
+    min-width: 100%; min-height: 100%;
+    transform: translate(50%, -50%)}
+
+  body#scanner .camera .frame{
+    position: absolute;
+    top: 0; bottom: 0;
+    right: 0; left: 0;
+    margin: auto;
+    z-index: 1;
+    height: 100vmin; width: 100vmin}
+
+  body#scanner .camera .frame .frame-element{
+    position: absolute;
+    width: 100%; height: 100%}
+
+  body#scanner .camera .frame .frame-element::before,
+  body#scanner .camera .frame .frame-element::after{
+    content: '';
+    position: absolute;
+    width: 20vmin; height: 20vmin;
+    border-width: 2px}
+
+  body#scanner .camera .frame .frame-element.frame-element-top:before{
+    top: 12px; right: 12px;
+    border-style: solid solid none none}
+  body#scanner .camera .frame .frame-element.frame-element-top:after{
+    top: 12px; left: 12px;
+    border-style: solid none none solid}
+  body#scanner .camera .frame .frame-element.frame-element-bottom:before{
+    bottom: 12px; right: 12px;
+    border-style: none solid solid none}
+  body#scanner .camera .frame .frame-element.frame-element-bottom:after{
+    bottom: 12px; left: 12px;
+    border-style: none none solid solid}
+
+  body#scanner .camera.waiting .frame .frame-element::before,
+  body#scanner .camera.waiting .frame .frame-element::after{
+    border-color: #FF9800;
+    animation: blinker 1s linear infinite}
+
+  body#scanner .camera.captured .frame .frame-element::before,
+  body#scanner .camera.captured .frame .frame-element::after{
+    border-color: #FF9800}
+
+  body#scanner .camera .text{
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+    padding: 15px 0}
+
+/*****                                                                         *****/
+/*****                                                                         *****/
+/***********************************************************************************/

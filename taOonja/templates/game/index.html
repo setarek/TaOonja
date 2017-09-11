@@ -1,0 +1,32 @@
+{% extends 'game/base.html' %}
+{% block title %} ***** {% endblock %}
+{% load staticfiles %}
+{% block index %}
+
+<main class="index">
+  <section class="joqd grey-lighten-4 container-narrow">
+    <div class="joqd row">
+      <div class="joqd mobile-12">
+        <h2 class="joqd h3 align-center grey-darken-2-text">تمام شهر رو کشف کن!</h2>
+        <p class="joqd align-center small grey-darken-1-text">دنبال سر نخ بگرد تا بتونی هدف بعدی رو پیدا کنی. <a href="about.html" class="joqd link orange-text">با بازی بیشتر آشنا شو.</a></p>
+      </div>
+    </div>
+  </section>
+  <!-- Carousel -->
+  <section class="joqd grey-lighten-4 container-narrow">
+    <div class="joqd row">
+      <div class="joqd mobile-12 no-gaps owl-carousel owl-theme">
+
+        <div class="item joqd align-center">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="">
+          <h3 class="joqd grey-darken-3-text">برج میلاد</h3>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <!-- /Carousel -->
+</main>
+
+{% endblock %}
