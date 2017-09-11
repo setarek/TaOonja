@@ -16,11 +16,13 @@
   <section class="joqd grey-lighten-4 container-narrow">
     <div class="joqd row">
       <div class="joqd mobile-12 no-gaps owl-carousel owl-theme">
-
+        {% for location in location_list %}
         <div class="item joqd align-center">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="">
-          <h3 class="joqd grey-darken-3-text">برج میلاد</h3>
+llllllllllllllllllllllllllllllllllllllll
+          <img src="{{location.img.url}}" alt="">
+          <h3 class="joqd grey-darken-3-text">-------</h3>
         </div>
+        {% endfor %}
 
 
       </div>
