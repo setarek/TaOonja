@@ -2,8 +2,8 @@ import os
 
 from django.db import models
 
-def get_image_path(instance, filename):
-    return os.path.join('photos', str(instance.id), filename)
+def get_image_path(filename):
+    return os.path.join('photos',filename)
 
 class Location(models.Model):
     name = models.CharField(max_length=250)
