@@ -18,8 +18,11 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 from django.contrib import admin
 
+from game.views import LocationListView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^location/$', LocationListView.as_view(), name='location-list')
+    
 ]
 
 
