@@ -16,6 +16,9 @@
 		<!-- Gorbeh Icons -->
 		<link href="gorbeh/css/gorbeh-icons.min.css" rel="stylesheet">
 
+		<!-- Owl Carousel -->
+		<link href="css/owl.carousel.min.css" rel="stylesheet">
+
 		<!-- Custom CSS -->
 		<link href="css/custom.css" rel="stylesheet">
 	</head>
@@ -41,9 +44,81 @@
 			<!-- /Navbar -->
 		</header>
 
-		<main>
+		<main class="index">
+			<section class="joqd grey-lighten-4 container-narrow">
+				<div class="joqd row">
+					<div class="joqd mobile-12">
+						<h2 class="joqd h3 align-center grey-darken-2-text">تمام شهر رو کشف کن!</h2>
+						<p class="joqd align-center small grey-darken-1-text">دنبال سر نخ بگرد تا بتونی هدف بعدی رو پیدا کنی. <a href="about.html" class="joqd link orange-text">با بازی بیشتر آشنا شو.</a></p>	
+					</div>	
+				</div>				
+			</section>
+			<!-- Carousel -->
+			<section class="joqd grey-lighten-4 container-narrow">
+				<div class="joqd row">
+					<div class="joqd mobile-12 no-gaps owl-carousel owl-theme">
 
+						<div class="item joqd align-center">
+							<img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="">
+							<h3 class="joqd grey-darken-3-text">برج میلاد</h3>
+						</div>
+
+						<div class="item joqd align-center">
+							<img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="">
+							<h3 class="joqd grey-darken-3-text">کاخ گلستان</h3>
+						</div>
+
+						<div class="item joqd align-center">
+							<img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="">
+							<h3 class="joqd grey-darken-3-text">کافه نال</h3>
+						</div>
+
+						<div class="item joqd align-center">
+							<img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="">
+							<h3 class="joqd grey-darken-3-text">دانشگاه</h3>
+						</div>
+
+						<div class="item joqd align-center">
+							<img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="">
+							<h3 class="joqd small grey-darken-1-text">کشف نشده</h3>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!-- /Carousel -->
 		</main>
+
+		<footer>
+			<!-- Bottom Nav -->
+			<nav class="joqd bottom-nav white thin-top-border grey-lighten-1-border container-narrow">
+				<div class="joqd row align-center">
+					<!-- About -->
+					<div class="joqd mobile-6 no-padding bottom-nav-right-button">
+						<a href="#" class="joqd button large medium full-width flat ripple-click ripple-darken grey-darken-1-text white">
+							<i class="gb gb_vpn_lock gb_s24"></i>
+						</a>
+					</div>
+					<!-- /About -->
+					<!-- QR -->
+					<div class="scan-qr-wrapper">
+						<span class="joqd circle-corner scan-qr-button">
+							<a href="scanner.html" class="joqd orange white-text flat circle-corner ripple-click ripple-darken button"><i class="gb gb_camera gb_s24"></i></a>
+						</span>
+					</div>
+					<!-- /QR -->
+					<!-- Main -->
+					<div class="joqd mobile-6 no-padding bottom-nav-left-button">
+						<a href="index.html" class="joqd button large medium full-width flat ripple-click ripple-darken orange-text white">
+							<i class="gb gb_map gb_s24"></i>
+						</a>
+					</div>
+					<!-- /Main -->
+				</div>
+			</nav>
+			<!-- /Bottom Nav -->
+
+		</footer>
 
 
 		<!-- Scripts -->
@@ -53,8 +128,19 @@
 		<!-- Joqd Core js -->
 		<script src="js/joqd.min.js"></script>
 
+		<!-- Owl Carousel js -->
+		<script src="js/owl.carousel.min.js"></script>
+
 		<!-- Custom js -->
-		<script src="js/custom.js"></script>
+		<script>
+			$('.owl-carousel').owlCarousel({
+				rtl: true,
+				loop: true,
+				margin: 12,
+				items: 2,
+				center: true
+			})
+		</script>
 
 	</body>
 </html>
