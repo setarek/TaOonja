@@ -4,9 +4,19 @@
 {% block detail %}
 
 <h1>ssssssssssSSSS</h1>
+نام
 {{object.name}}
 <br>
+نام محلی
 {{object.local_name}}
 <br>
-{{detail_info.detail}}   
+جزیات
+{{object.detail}}
+<br>
+<img src="{{object.img.url}}" >
+
+<br>
+{% if object.visited %}
+MAN RESIDAM
+{% endif %}
 {% endblock %}

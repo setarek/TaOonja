@@ -18,8 +18,10 @@
       <div class="joqd mobile-12 no-gaps owl-carousel owl-theme">
         {% for location in location_list %}
         <div class="item joqd align-center">
-llllllllllllllllllllllllllllllllllllllll
-          <img src="{{location.img.url}}" alt="">
+          {{location.name}}
+          <a href="{% url 'location_detail' location.pk %}">
+            <img src="{{location.img.url}}" alt="">
+	  </a>
           <h3 class="joqd grey-darken-3-text">-------</h3>
         </div>
         {% endfor %}
