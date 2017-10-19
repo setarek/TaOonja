@@ -4,6 +4,7 @@
 {% block index %}
 
 <main class="index">
+
   <section class="joqd grey-lighten-4 container-narrow">
     <div class="joqd row">
       <div class="joqd mobile-12">
@@ -12,25 +13,31 @@
       </div>
     </div>
   </section>
+
   <!-- Carousel -->
   <section class="joqd grey-lighten-4 container-narrow">
     <div class="joqd row">
       <div class="joqd mobile-12 no-gaps owl-carousel owl-theme">
         {% for location in location_list %}
         <div class="item joqd align-center">
-          {{location.name}}
-          <a href="{% url 'location_detail' location.pk %}">
-            <img src="{{location.img.url}}" alt="">
-	  </a>
-          <h3 class="joqd grey-darken-3-text">-------</h3>
+          {% if location.visited %}
+            <a href="{% url 'location_detail' location.pk %}">
+              <img src="{{location.img.url}}" alt="{{location.local_name}}">
+        	  </a>
+            <h3 class="joqd grey-darken-3-text">{{location.local_name}}</h3>
+          {% else %}
+            <span>
+              <img src="https://placeholdit.imgix.net/~text?txtsize=72&txt=3:4&w=800&h=600" alt="کشف نشده">
+            </span>
+            <h3 class="joqd grey-darken-3-text">کشف نشده</h3>
+          {% endif %}
         </div>
         {% endfor %}
-
-
       </div>
     </div>
   </section>
   <!-- /Carousel -->
+
 </main>
 
 {% endblock %}
