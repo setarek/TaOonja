@@ -5,14 +5,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<meta name="theme-color" content="#ff9800">
+
 		<meta name="author" content="Javid Izadfar">
 
 		<title>تا اونجا</title>
 
 		<!-- Styles -->
 		<!-- Joqd Core CSS -->
-                {% load static %}
-                {% load staticfiles %}
+    {% load static %}
+    {% load staticfiles %}
 
 		<link href="{% static 'css/joqd.min.css' %}" rel="stylesheet">
 
@@ -27,31 +29,28 @@
 	</head>
 	<body class="joqd grey-lighten-4" style="min-height: 100vh">
 
-
 		<header>
 			<!-- Navbar -->
 				<nav class="joqd navbar thick-navbar sticky-navbar orange white-text container-narrow">
-					<!-- Sandwich -->
-					<div class="joqd sandwich white-text orange-lighten-1-hover">
-						<i class="gb gb_menu"></i>
-					</div>
-					<!-- /Sandwich -->
 					<!-- Logo -->
-					<!-- <div class="joqd logo">
+					<div class="joqd logo">
 						<a href="http://ikacc.ir" class="joqd link white-text">
-							<img src="img/ika-icon.png" alt="IKA">
+							<img src="{% static 'images/logo.png' %}" alt="تا اونجا">
 						</a>
-					</div> -->
+					</div>
 					<!-- /Logo -->
 				</nav>
 			<!-- /Navbar -->
 		</header>
-                {% block index %}
-                {% endblock %}
 
-                {% block detail %}
-                {% endblock %}
+    {% block index %}
+    {% endblock %}
 
+    {% block detail %}
+    {% endblock %}
+
+    {% block about %}
+		{% endblock %}
 
 		<footer>
 			<!-- Bottom Nav -->
@@ -59,7 +58,7 @@
 				<div class="joqd row align-center">
 					<!-- About -->
 					<div class="joqd mobile-6 no-padding bottom-nav-right-button">
-						<a href="#" class="joqd button large medium full-width flat ripple-click ripple-darken grey-darken-1-text white">
+						<a href="{% url 'about' %}" class="joqd button large medium full-width flat ripple-click ripple-darken {% if request.get_full_path == '/about' %}orange-text{% else %}grey-darken-1-text{% endif %} white">
 							<i class="gb gb_vpn_lock gb_s24"></i>
 						</a>
 					</div>
@@ -67,13 +66,15 @@
 					<!-- QR -->
 					<div class="scan-qr-wrapper">
 						<span class="joqd circle-corner scan-qr-button">
-							<a href="scanner.html" class="joqd orange white-text flat circle-corner ripple-click ripple-darken button"><i class="gb gb_camera gb_s24"></i></a>
+							<a href="scanner.html" class="joqd orange white-text flat circle-corner ripple-click ripple-darken button">
+								<i class="gb gb_camera gb_s24"></i>
+							</a>
 						</span>
 					</div>
 					<!-- /QR -->
 					<!-- Main -->
 					<div class="joqd mobile-6 no-padding bottom-nav-left-button">
-						<a href="index.html" class="joqd button large medium full-width flat ripple-click ripple-darken orange-text white">
+						<a href="{% url 'location-list' %}" class="joqd button large medium full-width flat ripple-click ripple-darken {% if request.get_full_path == '/' %}orange-text{% else %}grey-darken-1-text{% endif %} white">
 							<i class="gb gb_map gb_s24"></i>
 						</a>
 					</div>

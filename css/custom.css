@@ -29,6 +29,17 @@
   50% { opacity: 0 }
 }
 
+nav.joqd.navbar .joqd.logo{
+  display: table;
+  margin: 0 auto;
+  height: auto !important;
+  padding: 20.5px 0 !important;
+  float: none}
+
+nav.joqd.navbar .joqd.logo a,
+nav.joqd.navbar .joqd.logo a img{display: block}
+
+
 body > main{
   padding-top: 62px;
   padding-bottom: 62px}
