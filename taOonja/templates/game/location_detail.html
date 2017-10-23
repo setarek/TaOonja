@@ -2,15 +2,32 @@
 {% block title %} ***** {% endblock %}
 {% load staticfiles %}
 {% block detail %}
-<main>
+<main class="detail">
   <!-- Map -->
   <section class="joqd grey-lighten-2 container-narrow">
       <div class="joqd row">
         <div id="Map" class="joqd mobile-12 ratio-3-2"></div>
       </div>
     </section>
+    <input id="cords" type="text" value="{{object.coordinates}}" style="display: none">
   <!-- /Map -->
+  <!-- Info -->
+  <section class="joqd grey-lighten-4 container-narrow">
+      <div class="joqd row">
 
+        <div class="joqd mobile-12 white elevate-2 description-title">
+          <h1 class="joqd mobile-7 no-margin grey-darken-4-text">{{object.local_name}}</h1>
+          <p class="joqd mobile-5 no-margin no-gaps grey-darken-1-text">
+            <i class="gb gb_directions_run gb_mirror gb_s24"></i>
+            <span>
+              <strong>در حال محاسبه</strong>
+              <small>لطفا صبر کنید</small>
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+  <!-- /Info -->
 </main>
 {% endblock %}
 
@@ -26,7 +43,7 @@
 
   <!-- Custom js -->
   <script type="text/javascript">
-    function map(start, end) {
+    function map(end) {
       let map = new google.maps.Map(document.getElementById("Map"), {
         center: new google.maps.LatLng(end.lat, end.lng),
         zoom: 14,
@@ -35,10 +52,13 @@
       });
 
       let mapMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(end.lat, end.lng),
-          map: map
-        });
+        position: new google.maps.LatLng(end.lat, end.lng),
+        map: map
+      });
 
+    }
+
+    function direction(start, end) {
       let directionsService = new google.maps.DirectionsService;
       directionsService.route({
         origin: start.lat + ',' + start.lng,
@@ -54,23 +74,43 @@
           $('.description-title p').hide()
         }
       });
-
     }
 
     $(function() {
 
-      map(
-        {
-          // start
-          lat: 35.746368,
-          lng: 51.380923
-        },
-        {
-          // end
-          lat: 35.7442482,
-          lng: 51.3757476
-        }
-      );
+      let end_cords = $('#cords')[0].value.replace(' ', '').split(',');
+
+      map({
+        // end
+        lat: end_cords[0],
+        lng: end_cords[1]
+      })
+
+      function geo_success(position) {
+        direction(
+          {
+            // start
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          },
+          {
+            // end
+            lat: end_cords[0],
+            lng: end_cords[1]
+          }
+        );
+      }
+      function geo_error() {
+        console.log("Sorry, no position available.");
+      }
+      var geo_options = {
+        enableHighAccuracy: true,
+        maximumAge: 30000,
+        timeout: 27000
+      };
+
+      var wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+
 
       $('.owl-carousel').owlCarousel({
         rtl: true,
