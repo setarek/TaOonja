@@ -93,19 +93,11 @@
 		<!-- Joqd Core js -->
 		<script src="{% static 'js/joqd.min.js' %}"></script>
 
-		<!-- Owl Carousel js -->
-		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		{% block index_scripts %}
+    {% endblock %}
 
-		<!-- Custom js -->
-		<script>
-			$('.owl-carousel').owlCarousel({
-				rtl: true,
-				loop: true,
-				margin: 12,
-				items: 2,
-				center: true
-			})
-		</script>
+		{% block detail_scripts %}
+    {% endblock %}
 
 	</body>
 </html>

@@ -40,4 +40,21 @@
 
 </main>
 
+
+{% endblock %}
+
+{% block index_scripts %}
+<!-- Owl Carousel js -->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+<!-- Custom js -->
+<script type="text/javascript">
+  $('.owl-carousel').owlCarousel({
+    rtl: true,
+    loop: true,
+    margin: 12,
+    items: 2,
+    center: true
+  })
+</script>
 {% endblock %}
