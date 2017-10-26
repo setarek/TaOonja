@@ -25,15 +25,31 @@
             </span>
           </p>
         </div>
+
+        <textarea id="detail" rows="8" cols="80" style="display: none">{{object.detail}}</textarea>
+        <div class="joqd mobile-12 description-detail">
+          <div class="joqd grey-darken-2-text transition-smooth description-detail-inner mini">
+            <div class="description-detail-inner-wrapper">
+            </div>
+          </div>
+          <div class="joqd grey-darken-3-text transition-smooth align-center description-detail-more">
+            <b>نمایش بیشتر</b>
+          </div>
+        </div>
+
       </div>
     </section>
   <!-- /Info -->
+
 </main>
 {% endblock %}
 
 {% block detail_scripts %}
   <!-- Google Map (API) -->
   <script src="https://maps.googleapis.com/maps/api/js?language=fa&region=IR&key=AIzaSyBYU21AAsHuPUH4UbOO2p9rVp5R9NtQUv0"></script>
+
+  <!-- Markdown-it (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.0/markdown-it.min.js"></script>
 
   <!-- FeatherLight -->
   <script src="{% static 'js/featherlight.min.js' %}"></script>
@@ -43,6 +59,7 @@
 
   <!-- Custom js -->
   <script type="text/javascript">
+
     function map(end) {
       let map = new google.maps.Map(document.getElementById("Map"), {
         center: new google.maps.LatLng(end.lat, end.lng),
@@ -111,6 +128,8 @@
 
       var wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
 
+      let md = window.markdownit();
+      $('.description-detail-inner-wrapper')[0].innerHTML = md.render($('#detail')[0].value)
 
       $('.owl-carousel').owlCarousel({
         rtl: true,
