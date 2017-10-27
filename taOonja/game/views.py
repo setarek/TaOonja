@@ -33,3 +33,7 @@ class LocationDetailView(DetailView):
 class AboutView(TemplateView):
 
     template_name = 'game/about.html'
+
+class ScannerView(TemplateView):
+
+    template_name = 'game/scanner.html'

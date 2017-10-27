@@ -18,12 +18,13 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 from django.contrib import admin
 
-from game.views import LocationListView, LocationDetailView, AboutView
+from game.views import LocationListView, LocationDetailView, AboutView, ScannerView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', LocationListView.as_view(), name='location-list'),
     url(r'^about$', AboutView.as_view(), name='about'),
+    url(r'^scanner$', ScannerView.as_view(), name='scanner'),
     url(r'^location/(?P<pk>\d+)$', LocationDetailView.as_view(), name='location_detail'),
 
 ]

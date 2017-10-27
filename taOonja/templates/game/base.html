@@ -52,6 +52,9 @@
     {% block about %}
 		{% endblock %}
 
+    {% block scanner %}
+		{% endblock %}
+
 		<footer>
 			<!-- Bottom Nav -->
 			<nav class="joqd bottom-nav white thin-top-border grey-lighten-1-border container-narrow">
@@ -66,7 +69,7 @@
 					<!-- QR -->
 					<div class="scan-qr-wrapper">
 						<span class="joqd circle-corner scan-qr-button">
-							<a href="scanner.html" class="joqd orange white-text flat circle-corner ripple-click ripple-darken button">
+							<a href="{% url 'scanner' %}" class="joqd orange white-text flat circle-corner ripple-click ripple-darken button">
 								<i class="gb gb_camera gb_s24"></i>
 							</a>
 						</span>
@@ -97,6 +100,9 @@
     {% endblock %}
 
 		{% block detail_scripts %}
+    {% endblock %}
+
+		{% block scanner_scripts %}
     {% endblock %}
 
 	</body>

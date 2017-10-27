@@ -1,17 +1,16 @@
 $(function() {
 
-  var is_scaned = false;
-
-  console.log('now')
-  var success = $('audio')[0];
+  let is_scaned = false;
+  let success = $('audio')[0];
 
   $('.camera').html5_qrcode(
     function(data){
-      console.log('success', data);
       if(!is_scaned){
+        is_scaned = true
         success.play();
-        is_scaned = true;
-        window.location = "map.html"; // this is temp as shit
+        success.addEventListener('ended', function() {
+          window.location = '/location/' + data
+        });
       }
     },
     function(error){

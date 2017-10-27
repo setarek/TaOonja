@@ -1,0 +1,53 @@
+{% extends 'game/base.html' %}
+{% block title %} اسکنر {% endblock %}
+{% load staticfiles %}
+{% block scanner %}
+  <main class="scanner">
+    <div class="camera waiting">
+      <div class="frame">
+        <div class="frame-element frame-element-top"></div>
+        <div class="frame-element frame-element-bottom"></div>
+      </div>
+      <div class="text">
+        <p class="joqd align-center white-text no-margin">کد <span lang="en">QR</span> را داخل جعبه چشمک‌زن قرار دهید!</p>
+      </div>
+    </div>
+    <audio src="{% static 'audio/scanned.mp3' %}" autostart="false"></audio>
+  </main>
+{% endblock %}
+
+{% block detail_scripts %}
+  <!-- QR Decoder -->
+  <script src="{% static 'js/jsqrcode-combined.min.js' %}"></script>
+  <script src="{% static 'js/html5-qrcode.min.js' %}"></script>
+
+
+  <!-- Custom js -->
+  <script type="text/javascript">
+    $(function() {
+
+      let is_scaned = false;
+      let success = $('audio')[0];
+
+      $('.camera').html5_qrcode(
+        function(data){
+          if(!is_scaned){
+            is_scaned = true
+            success.play();
+            success.addEventListener('ended', function() {
+              window.location = '/location/' + data
+            });
+          }
+        },
+        function(error){
+          console.log(error);
+        },
+        function(videoError){
+          console.log(videoError);
+        }
+      );
+      $('.camera video, .camera canvas').removeAttr('height width')
+    })
+
+  </script>
+{% endblock %}
